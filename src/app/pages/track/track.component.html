@@ -1,0 +1,140 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h3 style="color:white; align-items: center; display: flex; justify-content: center">Air Waybill Number</h3>
+    <div class="header-body" style="align-items: center; display: flex; justify-content: center;">
+ <div >
+        <form  [formGroup]="trackForm" (ngSubmit)="onSearch()" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+          <div class="form-group mb-0" >
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+              </div>
+              <input formControlName="awb" form class="form-control" placeholder="Search" type="text" >
+            </div>
+          </div>
+          <button style="margin-left: 5px" type="submit" class="btn btn-secondary" >Track</button>
+        </form>
+</div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <div>
+    <div class="card shadow">
+      <div class="card-header border-0">
+
+        <div *ngIf="hasAWB">
+        <mat-accordion >
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="display: block;     padding: 0 0px;">
+                <h3>172-83932203 Cargolux Airlines </h3>
+                <p>PVG - Shanghai (CN) -> MXP - Milan (IT)</p>
+                <p>4 pcs 115.0 K</p>
+              </mat-panel-title>
+              <mat-panel-description style="display: block;     padding: 0 0px;">
+                <div style="display: flex; flex-direction: row; padding-bottom: 40px;">
+                  <div style="display: flex; flex-direction: column;  padding-right: 60px;">
+                    <h3>Current Status</h3>
+                    <p> MXP - Milan (IT)</p>
+                    <p>4 pieces documents delivered</p>
+                    <p>16 March 24 - 10:01</p>
+                  </div>
+                  <div style="display: flex; flex-direction: column;">
+                    <h3>Planned Ready to be picked up</h3>
+                    <p> MXP - Milan (IT)</p>
+                    <p>16 March 24 - 18:27</p>
+                  </div>
+                </div>
+                <!--        {{panelOpenState ? 'open' : 'closed'}}-->
+                <!---->
+              </mat-panel-description>
+            </mat-expansion-panel-header >
+            <div style="display: flex; flex-direction: column; padding-top: 50px ">
+              <!-- First Row -->
+              <div style="display: flex; flex-direction: row; margin-bottom: 40px;">
+                <!-- First Column (Image) -->
+                <div style="flex: 1;">
+                  <img style=" height: 90px; padding-left: 100px;" src="data:image/png;base64,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">
+                </div>
+                <!-- Second Column (Details) -->
+                <div style="flex: 2; padding-left: 10px;">
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <h3 style="margin-top: 0;">PVG - Shanghai (CN)</h3>
+                  </div>
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">FWB received from Forwarder</p>
+                      <p style="margin-bottom: 5px;">4 pieces accepted</p>
+                    </div>
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">13 March 2024 - 21:33   FWB</p>
+                      <p style="margin-bottom: 5px;">14 March 2024 - 20:26   RCS</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="display: flex; flex-direction: row; margin-bottom: 40px;">
+                <!-- First Column (Image) -->
+                <div style="flex: 1;">
+                  <img style=" height: 90px; padding-left: 100px;" src="data:image/png;base64,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">
+                </div>
+                <!-- Second Column (Details) -->
+                <div style="flex: 2; padding-left: 10px;">
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <h3 style="margin-top: 0;">LUX - Luxembourg (LU)</h3>
+                  </div>
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">4 pieces arrived on CV9984</p>
+                      <p style="margin-bottom: 5px;">4 pieces received on CV9984</p>
+                      <p style="margin-bottom: 5px;">4 pieces departed on C8046</p>
+                    </div>
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">15 March 2024 - 09:42   ARR</p>
+                      <p style="margin-bottom: 5px;">15 March 2024 - 12:09   RCF</p>
+                      <p style="margin-bottom: 5px;">16 March 2024 - 06:11   DEP</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="display: flex; flex-direction: row; margin-bottom: 40px;">
+                <!-- First Column (Image) -->
+                <div style="flex: 1;">
+                  <img style=" height: 90px; padding-left: 100px;" src="data:image/png;base64,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">
+                </div>
+                <!-- Second Column (Details) -->
+                <div style="flex: 2; padding-left: 10px;">
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <h3 style="margin-top: 0;">MXP - Milan (IT)</h3>
+                  </div>
+                  <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">4 pieces arrived on C8046</p>
+                      <p style="margin-bottom: 5px;">4 pieces arrived on C8046</p>
+                      <p style="margin-bottom: 5px;">4 pieces ready to be picked up</p>
+                    </div>
+                    <div style="flex: 2; padding-left: 10px;">
+                      <p style="margin-bottom: 5px;">16 March 2024 - 07:27   ARR</p>
+                      <p style="margin-bottom: 5px;">16 March 2024 - 08:00   RCF</p>
+                      <p style="margin-bottom: 5px;">16 March 2024 - 10:01   NFD</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
