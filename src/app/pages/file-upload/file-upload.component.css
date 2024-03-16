@@ -1,0 +1,21 @@
+.mawb-width {
+  width: 12%;
+  max-width: 200px;
+}
+
+.table-width {
+  width: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+th, td {
+  width: 50%; /* Adjust column width as needed */
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}

@@ -303,10 +303,10 @@ export const chartExample1 = {
     }
   },
   data: {
-    labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    labels: ['LOW', 'MEDIUM', 'HIGH'],
     datasets: [{
       label: 'Performance',
-      data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+      data: [0, 20, 10]
     }]
   }
 }
@@ -343,11 +343,11 @@ export const chartExample2 = {
     }
   },
   data: {
-    labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: ["LOW", "MEDIUM", "HIGH"],
     datasets: [
       {
         label: "Sales",
-        data: [25, 20, 30, 22, 17, 29],
+        data: [7372, 4176, 1552],
         maxBarThickness: 10
       }
     ]

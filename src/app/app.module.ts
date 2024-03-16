@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    FileUploadComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
