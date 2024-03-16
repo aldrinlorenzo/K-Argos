@@ -8,6 +8,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import { PreloFile } from '../../preloFile.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,8 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  preloFiles: PreloFile[] = [{name:'test2', totalParcels: 90, uploadedOn: '03/16/24'}];
 
   public datasets: any;
   public data: any;

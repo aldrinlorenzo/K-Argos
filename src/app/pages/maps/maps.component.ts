@@ -8,6 +8,7 @@ declare const google: any;
 })
 export class MapsComponent implements OnInit {
 
+  public focus;
   constructor() { }
 
   ngOnInit() {

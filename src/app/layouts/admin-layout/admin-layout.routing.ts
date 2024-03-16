@@ -10,6 +10,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'compliance',   component: UserProfileComponent },
     // { path: 'trackNTrace',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
+    // { path: 'icons',          component: IconsComponent },
     { path: 'trackNTrace',           component: MapsComponent }
 ];
