@@ -9,6 +9,8 @@ import {
   chartExample2
 } from "../../variables/charts";
 import { PreloFile } from '../../preloFile.model';
+import { TrackAWBService } from "../../services/track.service";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +27,11 @@ export class DashboardComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
+  constructor(private trackAWBService: TrackAWBService ) {
+  }
   ngOnInit() {
+    // just to check if it retrieves data
+    this.getAWBFromTrackAndTrace();
 
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
@@ -52,12 +58,23 @@ export class DashboardComponent implements OnInit {
 			options: chartExample1.options,
 			data: chartExample1.data
 		});
+
   }
 
 
   public updateOptions() {
     this.salesChart.data.datasets[0].data = this.data;
     this.salesChart.update();
+  }
+
+  public getAWBFromTrackAndTrace(){
+    console.log('getting the awb from track and trace')
+    this.trackAWBService.getAWB(250, 33122250).subscribe(
+        data => {
+          console.log(data);
+        }
+    );
+
   }
 
 }
