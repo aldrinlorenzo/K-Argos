@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
   public focus;
   public listTitles: any[];
   public location: Location;
+
+  @ViewChild('neOnePlay') embeddedFrame: ElementRef;
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
@@ -31,6 +34,22 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+
+  navigateToPlay() {
+    document.getElementById("neOnePlay").scrollIntoView();
+    const embeddedWindow = this.embeddedFrame.nativeElement.contentWindow;
+
+    // Fill the field
+    if (embeddedWindow) {
+      embeddedWindow.onload = () => {
+        const field = embeddedWindow.document.getElementById('fieldId'); // Replace 'fieldId' with the actual ID of the field
+        if (field) {
+          field.value = 'Your value here'; // Replace 'Your value here' with the data you want to fill
+        }
+      };
+    }
+
   }
 
 }
